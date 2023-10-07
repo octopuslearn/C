@@ -1,50 +1,27 @@
-//查看字符串的字符个数
+//已经导出为html笔记，具体见笔记
+//难点在理解，执行过程，代码调用
 #include <stdio.h>
-#include <string.h>
 
-//int main()
-//{
-//	char arr[] = "get";
-//	//['g'],['e'],['t'],['\0']
-//	printf("strlen原始个数：%d\n", strlen(arr));	//3
-//	printf("正确个数：%d\n", strlen(arr) + 1);	//3+1=4
-//	return 0;
-//}
-
-
-/*获取数组元素个数*/
-//数组名为第一个元素的地址，则字符串数组的数组名为第一个字符的地址
-//int my_strlen(char* str)
-//{
-//	int count = 0;
-//	while(*str != '\0')
-//	{
-//		count++;
-//		str++;
-//	}
-//	return count;
-//}
-//
-//int main()
-//{
-//	char arr[] = "get";
-//	printf("%d", my_strlen(arr));
-//}
-
-int my_strlen(char* str)
+void gaige(int a)
 {
-	if(*str != '\0')
+	if(a > 9)	//判断是否为1位数
 	{
-		return 1 + my_strlen(str + 1);
+		gaige(a / 10);
 	}
-	else
-	{
-		return 0;
-	}
+	printf("%d	", a%10);
 }
 
 int main()
 {
-	char arr[] = "get";
-	printf("%d", my_strlen(arr));
+	gaige(1234);
+	return 0;
 }
+
+
+///*递归*/
+//int main()
+//{
+//	printf("jejeje\n");
+//	main();
+//	return 0;
+//}
