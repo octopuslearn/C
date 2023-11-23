@@ -22,15 +22,16 @@ int chu(int x, int y)
 //int(* (*p)[4])(int, int);	//函数指针数组指针
 int main()
 {
-	int (*arr[])(int, int) = { add ,jianfa ,cheng ,chu };	//函数指针数组
+	int (*arr[])(int, int) = { NULL, add ,jianfa ,cheng ,chu };	//函数指针数组
 	int a = 0;
 	int b = 0;
 	int fuhao = 0;
 	//这样会有问题 1.加法是函数指针数组的第0个元素	2.怎么说呢
-	while (1)
+	do
 	{
 		printf("请选择运算符：");
 		scanf("%d", &fuhao);
+
 		if (fuhao >= 1 && fuhao <= 4)
 		{
 			printf("请输入两个数: ");
@@ -39,7 +40,7 @@ int main()
 			int value_out = arr[fuhao](a, b);
 
 
-			printf("value= %d", value_out);
+			printf("value= %d\n", value_out);
 		}
 		else if (fuhao == 5)
 		{
@@ -50,6 +51,6 @@ int main()
 		{
 			printf("错误：无此运算符\n");
 		}
-	}
+	} while (fuhao);
 	return 0;
 }
